@@ -1,0 +1,35 @@
+{
+  "variables": {
+    "aws_access_key": "",
+    "aws_secret_key": "",
+    "version": ""
+  },
+  "builders": [
+    {
+      "type": "amazon-ebs",
+      "access_key": "{{user `aws_access_key`}}",
+      "secret_key": "{{user `aws_secret_key`}}",
+      "region": "eu-west-1",
+      "source_ami": "ami-69b9941e",
+      "instance_type": "t2.medium",
+      "ssh_username": "ec2-user",
+      "ami_name": "{{user `version`}}",
+      "ami_users": [
+        "592652154909",
+        "985316455027",
+        "794535656547"
+      ],
+      "tags": {
+        "OS_Version": "Amazon Linux AMI",
+        "Release": "2015.09.0 x86_64 HVM GP2"
+      }
+    }
+  ],
+
+  "provisioners": [
+    {
+      "type": "shell",
+      "script": "grid.sh"
+    }
+  ]
+}
