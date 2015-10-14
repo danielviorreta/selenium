@@ -16,7 +16,7 @@ To start hub:
 sudo  docker run -d -p 4444:4444 --restart=always -e TZ=Europe/Madrid --name selenium-hub  selenium/hub:2.47.1
 
 To start a node:
-sudo  docker run -d --link selenium-hub:hub -e TZ=Europe/Madrid selenium/node-firefox:2.47.1
+sudo  docker run -d --link selenium-hub:hub --restart=always -e TZ=Europe/Madrid selenium/node-firefox:2.47.1
 
 
 
